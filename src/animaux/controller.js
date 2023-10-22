@@ -78,6 +78,7 @@ const removeAnimaux = (req, res) => {
 
 // 💅 update
 const updateAnimaux = (req, res) => {
+  console.log(req.params);
   const id = parseInt(req.params.id);
   const { Name } = req.body;
 
