@@ -1,6 +1,10 @@
 const express = require('express');
 
 const animauxRoutes = require('./src/animaux/routes');
+const userRoutes = require('./src/user/routes');
+const subRoutes = require('./src/subscription/routes');
+const userSubRoutes = require('./src/user_sub/routes');
+const userTransactions = require('./src/transaction/routes');
 
 const app = express();
 const port = 3000;
@@ -14,6 +18,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/animaux', animauxRoutes);
-// app.use('/api/test', testRoutes);
+app.use('/api/user', userRoutes);
+app.use('/api/sub', subRoutes);
+app.use('/api/usersub', userSubRoutes);
+app.use('/api/transaction', userTransactions);
 
 app.listen(port, () => console.log(`app listening on port ${port}`));
