@@ -1,6 +1,5 @@
 const express = require('express');
 
-const animauxRoutes = require('./src/animaux/routes');
 const userRoutes = require('./src/user/routes');
 const subRoutes = require('./src/subscription/routes');
 const userSubRoutes = require('./src/user_sub/routes');
@@ -17,7 +16,6 @@ app.get('/', (req, res) => {
   res.send('hello');
 });
 
-app.use('/api/animaux', animauxRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/sub', subRoutes);
 app.use('/api/usersub', userSubRoutes);
