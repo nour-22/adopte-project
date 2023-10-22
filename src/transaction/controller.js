@@ -16,7 +16,20 @@ const getTransactionByUserId = (req, res) => {
   });
 };
 
+const getTransactionSumByPeriod = (req, res) => {
+  const { creation_date, end_date } = req.body;
+  pool.query(
+    queries.getTransactionSumByPeriod,
+    [creation_date, end_date],
+    (error, results) => {
+      if (error) throw error;
+      res.status(200).json(results.rows);
+    },
+  );
+};
+
 module.exports = {
   getTransactions,
   getTransactionByUserId,
+  getTransactionSumByPeriod,
 };
